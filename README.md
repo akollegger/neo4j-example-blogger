@@ -10,15 +10,15 @@ A Tour of the Model
 
 The blogging service itself.
 
-- manages User
-  - creation
+- `manages` User
+  - user creation
   - finds existing Users
-- knows about Blog
+- `knows about` Blog
   - finds existing Blogs
 
 ###User
 
-Users of the blogging system.
+Users of the blogging system, Users create Blogs and Articles.
 
 - `can admin` Blog
   - blog administrator

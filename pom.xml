@@ -49,6 +49,8 @@
     <module>features</module>
     <module>org.apache.lucene.core</module>
     <module>blogger-core</module>
+    <module>blogger-shell</module>
+    <module>blogger-rest</module>
   </modules>
 
   <build>
