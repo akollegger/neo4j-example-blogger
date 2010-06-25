@@ -1,0 +1,17 @@
+*.class
+*.iml
+*.ipr
+*.iws
+*~
+.DS_Store
+.hg/
+.hgignore
+.metadata/
+.classpath
+.project
+.settings/
+.idea
+target/
+runner/
+.manager/
+deploy/

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.neo4j.example</groupId>
+  <artifactId>org.neo4j.example.blogger</artifactId>
+  <version>1.0-SNAPSHOT</version>
+
+  <name>org.neo4j.example.blogger (OSGi project)</name>
+
+  <description>Generated using Pax-Construct</description>
+
+  <properties>
+    <!-- dependency versions -->
+    <karaf.version>1.6.0</karaf.version>
+    <guice.version>2.0</guice.version>
+    <peaberry.version>1.1.1</peaberry.version>
+    <aopalliance.version>1.0_1</aopalliance.version>
+    <junit.version>4.5</junit.version>
+    <pax-logging.version>1.5.0</pax-logging.version>
+    <neo4j.version>1.1-SNAPSHOT</neo4j.version>
+    <lucene.version>2.9.2</lucene.version>
+    <scala.version>2.8.0.RC3</scala.version>
+    <scalamodules.version>2.0-Scala280RC3-SNAPSHOT</scalamodules.version>
+    <scalaz.version>5.0-M2-SNAPSHOT</scalaz.version>
+    <grizzly.version>1.9.17</grizzly.version>
+    <pax-web.version>0.7.2</pax-web.version>
+    <jsr311.version>1.1.1</jsr311.version>
+    <servlet-spec.version>1.2</servlet-spec.version>
+    <commons-io.version>1.4</commons-io.version>
+    <!-- compile properties -->
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <neo4j.repository>http://m2.neo4j.org</neo4j.repository>
+    <!-- runtime properties -->
+    <org.osgi.service.http.port>8080</org.osgi.service.http.port>
+    <org.osgi.service.http.port.secure>8443</org.osgi.service.http.port.secure>
+    <!-- karaf runtime config -->
+    <karaf.base>${basedir}/karaf</karaf.base>
+    <felix.fileinstall.dir>${karaf.base}/etc</felix.fileinstall.dir>
+    <karaf.startRemoteShell>false</karaf.startRemoteShell>
+    <karaf.startLocalConsole>true</karaf.startLocalConsole>
+    <karaf.systemBundlesStartLevel>0</karaf.systemBundlesStartLevel>
+  </properties>
+
+  <packaging>pom</packaging>
+
+  <modules>
+    <module>poms</module>
+    <module>features</module>
+    <module>org.apache.lucene.core</module>
+    <module>blogger-core</module>
+  </modules>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.ops4j</groupId>
+        <artifactId>maven-pax-plugin</artifactId>
+        <version>1.4</version>
+        <configuration>
+          <framework>felix</framework>
+          <args>${karaf.base}/etc/runner.args</args>
+          <!-- noDependencies=true to force all required bundles to be part of a feature -->
+          <noDependencies>true</noDependencies>
+          <provision>
+            <param>scan-features:mvn:org.neo4j.example.blogger/features/1.0-SNAPSHOT/xml/features!/karaf-shell</param>
+            <param>scan-features:mvn:org.neo4j.example.blogger/features/1.0-SNAPSHOT/xml/features!/neo4j</param>
+            <param>scan-features:mvn:org.neo4j.example.blogger/features/1.0-SNAPSHOT/xml/features!/scala-osgi</param>
+            <param>scan-features:mvn:org.neo4j.example.blogger/features/1.0-SNAPSHOT/xml/features!/google-peaberry</param>
+          </provision>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+  <repositories>
+    <repository>
+      <id>neo4j-public-repository</id>
+      <url>${neo4j.repository}</url>
+    </repository>
+    <repository>
+      <id>scala-tools.org</id>
+      <name>Scala-tools Maven2 Repository</name>
+      <url>http://scala-tools.org/repo-releases</url>
+    </repository>
+  </repositories>
+
+</project>

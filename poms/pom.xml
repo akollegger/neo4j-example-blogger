@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <parent>
+    <groupId>org.neo4j.example</groupId>
+    <artifactId>org.neo4j.example.blogger</artifactId>
+    <version>1.0-SNAPSHOT</version>
+  </parent>
+
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.neo4j.example.blogger.build</groupId>
+  <artifactId>shared-plugin-settings</artifactId>
+
+  <name>org.neo4j.example.blogger - plugin configuration</name>
+
+  <packaging>pom</packaging>
+
+  <modules>
+    <module>wrappers</module>
+    <module>compiled</module>
+  </modules>
+
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.ops4j</groupId>
+          <artifactId>maven-pax-plugin</artifactId>
+          <extensions>true</extensions>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.felix</groupId>
+          <artifactId>maven-bundle-plugin</artifactId>
+          <version>1.4.3</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.osgi</groupId>
+        <artifactId>osgi_R4_core</artifactId>
+        <version>1.0</version>
+        <scope>provided</scope>
+        <optional>true</optional>
+      </dependency>
+      <dependency>
+        <groupId>org.osgi</groupId>
+        <artifactId>osgi_R4_compendium</artifactId>
+        <version>1.0</version>
+        <scope>provided</scope>
+        <optional>true</optional>
+      </dependency>
+      <dependency>
+        <groupId>org.scala-lang</groupId>
+        <artifactId>scala-library</artifactId>
+        <version>${scala.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.googlecode.scalaz</groupId>
+        <artifactId>scalaz-core_2.8.0.RC3</artifactId>
+        <version>${scalaz.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.eclipse.scalamodules</groupId>
+        <artifactId>scalamodules-core</artifactId>
+        <version>${scalamodules.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.scala-tools.testing</groupId>
+        <artifactId>specs_2.8.0.RC3</artifactId>
+        <version>1.6.5-SNAPSHOT</version>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>com.google.inject</groupId>
+        <artifactId>guice</artifactId>
+        <version>${guice.version}</version>
+        <scope>provided</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.ops4j</groupId>
+        <artifactId>peaberry</artifactId>
+        <version>${peaberry.version}</version>
+        <scope>provided</scope>
+      </dependency>
+      <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit-dep</artifactId>
+        <version>${junit.version}</version>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.neo4j</groupId>
+        <artifactId>neo4j-kernel</artifactId>
+        <version>${neo4j.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.neo4j</groupId>
+        <artifactId>neo4j-index</artifactId>
+        <version>${neo4j.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>commons-io</groupId>
+        <artifactId>commons-io</artifactId>
+        <version>${commons-io.version}</version>
+    </dependency>
+
+    </dependencies>
+  </dependencyManagement>
+
+</project>

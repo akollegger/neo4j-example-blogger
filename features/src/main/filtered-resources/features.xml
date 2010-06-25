@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<features name="neo4j-blogger-example 1.0-SNAPSHOT">
+
+  <feature name="google-peaberry" version="${peaberry.version}">
+    <bundle>mvn:org.ops4j/peaberry/${peaberry.version}</bundle>
+    <bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.aopalliance/${aopalliance.version}</bundle>
+    <bundle>mvn:com.google.inject/guice/${guice.version}</bundle>
+  </feature>
+
+  <feature name="neo4j" version="1.0-SNAPSHOT">
+    <bundle>mvn:org.apache.geronimo.specs/geronimo-jta_1.1_spec/1.1.1</bundle>
+    <bundle>mvn:${neo4j.repository}!org.neo4j/neo4j-kernel/${neo4j.version}</bundle>
+    <bundle>mvn:${neo4j.repository}!org.neo4j/neo4j-index/${neo4j.version}</bundle>
+  </feature>
+    
+
+  <feature name="scala-osgi" version="1.5">
+    <bundle>mvn:com.weiglewilczek.scala-lang-osgi/scala-library_2.8.0.RC3/1.0</bundle>
+    <bundle>mvn:org.eclipse.scalamodules/scalamodules-core/${scalamodules.version}</bundle>
+    <bundle>wrap:mvn:com.googlecode.scalaz/scalaz-core_2.8.0.RC3/5.0-M2-SNAPSHOT</bundle>
+  </feature>
+
+  <feature name="http-service" version="1.0-SNAPSHOT">
+    <bundle>mvn:org.osgi/org.osgi.compendium/4.1.0</bundle>
+    <bundle>mvn:com.sun.grizzly.osgi/grizzly-httpservice-bundle/${grizzly.version}</bundle>
+    <bundle>mvn:org.ops4j.pax.web/pax-web-extender-whiteboard/${pax-web.version}</bundle>
+    <bundle>mvn:org.apache.geronimo.specs/geronimo-servlet_2.5_spec/${servlet-spec.version}</bundle>
+  </feature>
+
+  <feature name="osgi-services" version="1.0-SNAPSHOT">
+    <bundle>mvn:org.apache.felix/org.apache.felix.configadmin/1.2.4</bundle>
+    <bundle>mvn:org.apache.felix/org.apache.felix.fileinstall/3.0.0</bundle>
+    <bundle>mvn:org.apache.felix/org.apache.felix.scr/1.4.0</bundle>
+    <bundle>mvn:org.apache.felix/org.apache.felix.metatype/1.0.4</bundle>
+    <bundle>mvn:org.ops4j.pax.logging/pax-logging-api/1.5.0</bundle>
+    <bundle>mvn:org.ops4j.pax.logging/pax-logging-service/1.5.0</bundle>
+  </feature>
+
+  <feature name="karaf-shell" version="${karaf.version}">
+    <feature>osgi-services</feature>
+    <bundle>mvn:org.apache.aries.blueprint/org.apache.aries.blueprint/0.1-incubating</bundle>
+    <bundle>mvn:org.apache.felix.karaf.deployer/org.apache.felix.karaf.deployer.blueprint/${karaf.version}</bundle>
+    <bundle>mvn:org.apache.aries.jmx/org.apache.aries.jmx.blueprint/0.1-incubating</bundle>
+    <bundle>mvn:org.apache.felix.gogo/org.apache.felix.gogo.runtime/0.4.0</bundle>
+    <bundle>mvn:org.apache.felix.karaf/org.apache.felix.karaf.commons/${karaf.version}</bundle>
+    <bundle>mvn:org.apache.felix.karaf.jaas/org.apache.felix.karaf.jaas.boot/${karaf.version}</bundle>
+    <bundle>mvn:org.apache.felix.karaf.jaas/org.apache.felix.karaf.jaas.modules/${karaf.version}</bundle>
+    <bundle>mvn:org.apache.felix.karaf.shell/org.apache.felix.karaf.shell.console/${karaf.version}</bundle>
+    <bundle>mvn:org.apache.felix.karaf.shell/org.apache.felix.karaf.shell.commands/${karaf.version}</bundle>
+    <bundle>mvn:org.apache.felix.karaf.shell/org.apache.felix.karaf.shell.config/${karaf.version}</bundle>
+    <bundle>mvn:org.apache.felix.karaf.jaas/org.apache.felix.karaf.jaas.config/${karaf.version}</bundle>
+    <bundle>mvn:org.apache.felix.karaf.shell/org.apache.felix.karaf.shell.log/${karaf.version}</bundle>
+    <bundle>mvn:org.apache.felix.karaf.shell/org.apache.felix.karaf.shell.osgi/${karaf.version}</bundle>
+    <bundle>mvn:org.apache.felix.karaf.shell/org.apache.felix.karaf.shell.packages/${karaf.version}</bundle>
+    <bundle>mvn:org.apache.felix.karaf.shell/org.apache.felix.karaf.shell.dev/${karaf.version}</bundle>
+  </feature>
+  
+
+</features>
