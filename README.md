@@ -4,4 +4,4 @@ This is a simple blogging service, written in scala and using neo4j for persiste
 
 Model
 =====
-![Domain Model](site/images/model.png)
+![Domain Model](raw/master/site/images/model.png)
